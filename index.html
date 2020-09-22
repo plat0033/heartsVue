@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hearts Vue</title>
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:300" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <div id="hand" class="hand">
+      <div class="card" v-for="card in game.deck"> <!--or you can use v-for="card in game.players[game.jugador]"-->
+        <div class="number" :class="card.suit" >{{card.rank}} </div>
+        <div class="suit"><img :src="'images/' + card.suit + '.png'"></div>
+        <div class="number" :class="card.suit">{{card.rank}}</div>
+      </div>
+    </div>
+    
+    <div id="controls" class="controls">
+      <button class="button" @click=" game.deck=value, game.jugador=key" v-for="(value, key) in game.players">{{key}}</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="script.js"></script>
+  
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hearts Vue</title>
+  <link href="https://fonts.googleapis.com/css?family=BioRhyme:300" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+
+  <div id="hand" class="hand">
+    <div class="card" >
+      <div class="number hearts">2</div>
+      <div class="suit"><img src="images/hearts.png"></div>
+      <div class="number hearts">2</div>
+    </div>
+  </div>
+  <div id="controls" class="controls">
+    <button class="button">Player 1</button>
+  </div>
+
+</div>
+</body>
+</html>
+-->
+
